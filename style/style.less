@@ -1,6 +1,9 @@
 @link-color: #fff;
 @link-color-hover: #c7b299;
 
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +24,7 @@ body {
         }
     }
 
-
-    .header {
-        //        height: 1015px;
+    & .header {
         background-color: #ccc;
         background: url("../images/photo1.png");
         background-repeat: no-repeat;
@@ -33,10 +34,63 @@ body {
         fill: @link-color;
         overflow: hidden;
 
+        //-==burger start==-
+        & label {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+            display: none;
+            background-image: url(../images/menu-128.png);
+            background-size: 100%;
+            margin-left: 100%;
+
+            @media screen and (max-width: 1000px) {
+                display: block;
+            }
+        }
+
+        & #menu {
+            visibility: hidden;
+        }
+
+        & input[type="checkbox"]:checked ~ .topHeader {
+            display: flex;
+            padding: 0;
+            width: 100px;
+            margin: 0 10% 0 83%;
+            float: left;
+
+            .menu {
+                border: 1px solid #fff;
+            }
+
+            li {
+                font-size: 30px;
+//                border: 2px solid;
+//                width: 100%;
+//                display: block;
+
+            }
+
+            form,
+            .icons,
+            .logo {
+                display: none;
+            }
+
+        }
+
+        //--==burger end==-
+
+
         & .topHeader {
             display: flex;
             align-items: center;
             padding: 0 184px 0 186px;
+
+            @media screen and (max-width: 1000px) {
+                display: none;
+            }
 
             & .logo {
                 display: flex;
@@ -46,17 +100,17 @@ body {
                 margin-right: 219px;
             }
 
+
             & nav {
                 float: left;
                 margin-right: 60px;
-                //                min-width: 628px;
+            }
 
-                & li {
-                    display: inline;
-                    margin-right: 30px;
-                    font-family: Montserrat;
-                    font-size: 14px;
-                }
+            & li {
+                display: inline;
+                margin-right: 30px;
+                font-family: Montserrat;
+                font-size: 14px;
             }
 
             & .icons {
@@ -83,10 +137,13 @@ body {
             }
         }
 
+
+
         & .headerInside {
             display: flex;
             justify-content: space-between;
-            margin-top: 285px;
+            margin: 285px auto 0 auto;
+            max-width: 1680px;
 
             & .BlockStrelka-Down {
                 display: flex;
@@ -99,13 +156,13 @@ body {
                 flex-wrap: wrap;
                 justify-content: center;
 
-                & H1 {
+                & h1 {
                     font-family: Raleway;
                     font-size: 52px;
                     margin: 14px 0 19px 0;
                 }
 
-                & H2 {
+                & h2 {
                     font-family: Raleway;
                     font-size: 36px;
                 }
@@ -149,14 +206,16 @@ body {
         }
     }
 
-    .WhiteBlock {
-        height: 373px;
+    & .WhiteBlock {
+        min-height: 373px;
         background-color: white;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         flex-wrap: wrap;
+        padding: 20px;
+        box-sizing: border-box;
 
         & .link-services {
             width: 300px;
@@ -166,6 +225,7 @@ body {
             text-decoration: none;
             text-align: center;
             color: #555555;
+            margin-bottom: 20px;
 
 
             &:hover svg {
@@ -211,10 +271,10 @@ body {
         }
     }
 
-    .Ideas {
+    & .Ideas {
         background-color: #fbfaf8;
         overflow: hidden;
-        padding: 83px 346px 0 346px;
+        padding: 5% 26% 0 26%;
 
         & h3 {
             font-family: Raleway;
@@ -243,44 +303,49 @@ body {
                 url(../images/browser-center.png) no-repeat top center,
                 url(../images/browser-left.png) no-repeat bottom left,
                 url(../images/browser-right.png) no-repeat bottom right;
+            max-width: 1384px;
+            margin: 0 auto;
         }
     }
 
-    .Theme {
+    & .Theme {
         background-image: linear-gradient(to right, #211b19, #4e3427);
         padding: 48px 374px 50px 376px;
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
 
         & .asideText {
-            float: left;
             width: 530px;
-            //            margin-right: 470px;
-        }
+            margin-right: 228px;
 
-        & h2 {
-            width: 530px;
-            font-family: Raleway;
-            font-size: 28px;
-            text-align: left;
-            color: @link-color;
-            margin: 0;
 
-            & span {
-                color: #c7b299;
+            & h2 {
+                width: 530px;
+                font-family: Raleway;
+                font-size: 28px;
+                text-align: left;
+                color: @link-color;
+                margin: 0;
 
+                & span {
+                    color: #c7b299;
+
+                }
+            }
+
+            & p {
+                width: 456px;
+                font-family: Montserrat;
+                font-size: 18px;
+                text-align: left;
+                color: #615855;
             }
         }
 
-        & p {
-            width: 456px;
-            font-family: Montserrat;
-            font-size: 18px;
-            text-align: left;
-            color: #615855;
-        }
-
         & a {
-            width: 170px;
+            min-width: 170px;
             height: 53px;
             border-radius: 3px;
             background-color: #998675;
@@ -290,11 +355,11 @@ body {
             font-family: Raleway;
             font-size: 14px;
             text-transform: uppercase;
-            float: right;
+            margin-left: 300px;
         }
     }
 
-    .Projects {
+    & .Projects {
         background-color: #fff;
         overflow: hidden;
         padding: 83px 346px 80px 346px;
@@ -472,7 +537,7 @@ body {
         }
     }
 
-    .VideoBlock {
+    & .VideoBlock {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -484,11 +549,11 @@ body {
         }
     }
 
-    .excellent {
+    & .excellent {
         //        width: fit-content;
         margin: 0 auto;
         background-color: #fbfaf8;
-        padding: 79px 388px 0px 423px;
+        padding: 5% 20% 0 20%;
         box-sizing: border-box;
         overflow: hidden;
         display: flex;
@@ -497,11 +562,11 @@ body {
 
         & img {
             display: block;
-//            float: left;
+            //            float: left;
         }
 
         & .excellentInsideText {
-//            float: right;
+            //            float: right;
             width: 1000px;
 
             & h3 {
@@ -531,25 +596,25 @@ body {
         }
     }
 
-    .count {
+    & .count {
         width: 100%;
         background-image: linear-gradient(to right, #211b19, #4e3427);
         overflow: hidden;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         flex-wrap: wrap;
-        padding: 69px 504px 30px 496px;
+        padding: 5% 20% 20px 20%;
         box-sizing: border-box;
 
         & figure {
-            
-            margin: 0 20px 30px 0;
+
+            margin: 0 80px 30px 0;
 
             & img {
                 margin: 0 auto;
                 display: block;
-                
-                    
+
+
             }
 
             & span {
@@ -582,12 +647,12 @@ body {
         }
     }
 
-    .posts {
+    & .posts {
         background-color: #ffffff;
         width: 100%;
-        padding: 82px 376px 0 376px;
+        padding: 5% 20% 0 20%;
         box-sizing: border-box;
-        margin-bottom: 142px;
+        margin-bottom: 50px;
 
         & h3 {
             font-family: Raleway;
@@ -617,7 +682,7 @@ body {
                 position: relative;
                 background-color: white;
                 width: 370px;
-                
+
                 & img {
                     width: inherit;
                 }
@@ -718,23 +783,28 @@ body {
         }
     }
 
-    .fotoFooter {
+    & .fotoFooter {
         background: url(../images/fotofooter.png);
         overflow: hidden;
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         flex-wrap: wrap;
         align-items: center;
-        padding: 140px 0 140px 0;
+        padding: 140px 80px 100px 80px;
         box-sizing: border-box;
+
+        & a {
+            margin-right: 80px;
+            margin-bottom: 50px;
+        }
     }
 
-    .footer {
+    & .footer {
         width: 100%;
         background-color: #191919;
-        padding: 80px 322px 0 376px;
+        padding: 5% 15% 5% 15%;
         box-sizing: border-box;
         overflow: hidden;
         display: flex;
@@ -861,4 +931,7 @@ body {
         }
 
     }
+
+
+    //        }
 }

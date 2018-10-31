@@ -24,10 +24,50 @@ body .header {
   fill: #ffffff;
   overflow: hidden;
 }
+body .header label {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #fff;
+  display: none;
+  background-image: url(../images/menu-128.png);
+  background-size: 100%;
+  margin-left: 100%;
+}
+@media screen and (max-width: 1000px) {
+  body .header label {
+    display: block;
+  }
+}
+body .header #menu {
+  visibility: hidden;
+}
+body .header input[type="checkbox"]:checked ~ .topHeader {
+  display: flex;
+  padding: 0;
+  width: 100px;
+  margin: 0 10% 0 83%;
+  float: left;
+}
+body .header input[type="checkbox"]:checked ~ .topHeader .menu {
+  border: 1px solid #fff;
+}
+body .header input[type="checkbox"]:checked ~ .topHeader li {
+  font-size: 30px;
+}
+body .header input[type="checkbox"]:checked ~ .topHeader form,
+body .header input[type="checkbox"]:checked ~ .topHeader .icons,
+body .header input[type="checkbox"]:checked ~ .topHeader .logo {
+  display: none;
+}
 body .header .topHeader {
   display: flex;
   align-items: center;
   padding: 0 184px 0 186px;
+}
+@media screen and (max-width: 1000px) {
+  body .header .topHeader {
+    display: none;
+  }
 }
 body .header .topHeader .logo {
   display: flex;
@@ -40,7 +80,7 @@ body .header .topHeader nav {
   float: left;
   margin-right: 60px;
 }
-body .header .topHeader nav li {
+body .header .topHeader li {
   display: inline;
   margin-right: 30px;
   font-family: Montserrat;
@@ -68,7 +108,8 @@ body .header .topHeader input[type="search"]:hover {
 body .header .headerInside {
   display: flex;
   justify-content: space-between;
-  margin-top: 285px;
+  margin: 285px auto 0 auto;
+  max-width: 1680px;
 }
 body .header .headerInside .BlockStrelka-Down {
   display: flex;
@@ -80,12 +121,12 @@ body .header .headerInside .centerHeader {
   flex-wrap: wrap;
   justify-content: center;
 }
-body .header .headerInside .centerHeader H1 {
+body .header .headerInside .centerHeader h1 {
   font-family: Raleway;
   font-size: 52px;
   margin: 14px 0 19px 0;
 }
-body .header .headerInside .centerHeader H2 {
+body .header .headerInside .centerHeader h2 {
   font-family: Raleway;
   font-size: 36px;
 }
@@ -121,13 +162,15 @@ body .header .downHeader input {
   height: 11px;
 }
 body .WhiteBlock {
-  height: 373px;
+  min-height: 373px;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-wrap: wrap;
+  padding: 20px;
+  box-sizing: border-box;
 }
 body .WhiteBlock .link-services {
   width: 300px;
@@ -137,6 +180,7 @@ body .WhiteBlock .link-services {
   text-decoration: none;
   text-align: center;
   color: #555555;
+  margin-bottom: 20px;
 }
 body .WhiteBlock .link-services:hover svg {
   fill: #deb887;
@@ -173,7 +217,7 @@ body .WhiteBlock .link-services:after {
 body .Ideas {
   background-color: #fbfaf8;
   overflow: hidden;
-  padding: 83px 346px 0 346px;
+  padding: 5% 26% 0 26%;
 }
 body .Ideas h3 {
   font-family: Raleway;
@@ -195,17 +239,22 @@ body .Ideas p {
 body .Ideas .IdeasFhoto {
   height: 482px;
   background: url(../images/browser-center.png) no-repeat top center, url(../images/browser-left.png) no-repeat bottom left, url(../images/browser-right.png) no-repeat bottom right;
+  max-width: 1384px;
+  margin: 0 auto;
 }
 body .Theme {
   background-image: linear-gradient(to right, #211b19, #4e3427);
   padding: 48px 374px 50px 376px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 body .Theme .asideText {
-  float: left;
   width: 530px;
+  margin-right: 228px;
 }
-body .Theme h2 {
+body .Theme .asideText h2 {
   width: 530px;
   font-family: Raleway;
   font-size: 28px;
@@ -213,10 +262,10 @@ body .Theme h2 {
   color: #ffffff;
   margin: 0;
 }
-body .Theme h2 span {
+body .Theme .asideText h2 span {
   color: #c7b299;
 }
-body .Theme p {
+body .Theme .asideText p {
   width: 456px;
   font-family: Montserrat;
   font-size: 18px;
@@ -224,7 +273,7 @@ body .Theme p {
   color: #615855;
 }
 body .Theme a {
-  width: 170px;
+  min-width: 170px;
   height: 53px;
   border-radius: 3px;
   background-color: #998675;
@@ -234,7 +283,7 @@ body .Theme a {
   font-family: Raleway;
   font-size: 14px;
   text-transform: uppercase;
-  float: right;
+  margin-left: 300px;
 }
 body .Projects {
   background-color: #fff;
@@ -402,7 +451,7 @@ body .VideoBlock video {
 body .excellent {
   margin: 0 auto;
   background-color: #fbfaf8;
-  padding: 79px 388px 0px 423px;
+  padding: 5% 20% 0 20%;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -441,13 +490,13 @@ body .count {
   background-image: linear-gradient(to right, #211b19, #4e3427);
   overflow: hidden;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 69px 504px 30px 496px;
+  padding: 5% 20% 20px 20%;
   box-sizing: border-box;
 }
 body .count figure {
-  margin: 0 20px 30px 0;
+  margin: 0 80px 30px 0;
 }
 body .count figure img {
   margin: 0 auto;
@@ -481,9 +530,9 @@ body .count figure::after {
 body .posts {
   background-color: #ffffff;
   width: 100%;
-  padding: 82px 376px 0 376px;
+  padding: 5% 20% 0 20%;
   box-sizing: border-box;
-  margin-bottom: 142px;
+  margin-bottom: 50px;
 }
 body .posts h3 {
   font-family: Raleway;
@@ -594,16 +643,20 @@ body .fotoFooter {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  padding: 140px 0 140px 0;
+  padding: 140px 80px 100px 80px;
   box-sizing: border-box;
+}
+body .fotoFooter a {
+  margin-right: 80px;
+  margin-bottom: 50px;
 }
 body .footer {
   width: 100%;
   background-color: #191919;
-  padding: 80px 322px 0 376px;
+  padding: 5% 15% 5% 15%;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
